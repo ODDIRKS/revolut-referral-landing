@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get a Free Revolut Card</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #2a64db, #8429ce);
+  color: #fff;
+}
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.feature {
+  flex: 1 1 250px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 10px;
+  border-radius: 10px;
+}
+h2 {
+  margin-top: 40px;
+}
+button.cta {
+  background: #fff;
+  color: #2a64db;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-top: 20px;
+}
+button.cta:hover {
+  opacity: 0.9;
+}
+.countdown {
+  font-size: 1.1em;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Get a Free Revolut Card &amp; Earn up to €200</h1>
+  <p>Join Revolut before <strong>11 Nov 2025</strong> and unlock your free virtual and physical cards for seamless travel and shopping. Complete simple steps to help me earn a referral bonus!</p>
+
+  <div class="features">
+    <div class="feature">
+      <h3>Instant Setup</h3>
+      <p>Open your account in minutes—no paperwork or hidden fees.</p>
+    </div>
+    <div class="feature">
+      <h3>Travel Perks</h3>
+      <p>Spend globally with great FX rates and no foreign transaction fees up to €1,000 per month.</p>
+    </div>
+    <div class="feature">
+      <h3>Earn €200</h3>
+      <p>Help me by signing up &amp; completing the steps. Together we can earn up to €200.</p>
+    </div>
+  </div>
+
+  <h2>How to Get Started</h2>
+  <ol style="text-align:left; max-width:600px; margin:auto;">
+    <li>Download the Revolut app using the button below.</li>
+    <li>Sign up and verify your identity (it's quick).</li>
+    <li>Add money to your account and make 3 purchases of at least €5 each.</li>
+  </ol>
+
+  <p>Offer ends soon! Complete the steps before 11 Nov 2025.</p>
+  <a href="https://revolut.com/referral/?referral-code=oualidhgep!NOV1-25-VR-NL&geo-redirect" target="_blank">
+    <button class="cta">Get Revolut Now</button>
+  </a>
+
+  <div id="countdown" class="countdown"></div>
+</div>
+
+<script>
+(function() {
+  // Set the end date (ISO string). Time zone: Europe/Amsterdam
+  var endDate = new Date('2025-11-11T23:59:59+01:00').getTime();
+  var countdownEl = document.getElementById('countdown');
+  function updateCountdown() {
+    var now = new Date().getTime();
+    var distance = endDate - now;
+    if (distance < 0) {
+      countdownEl.innerHTML = 'This offer has expired.';
+      return;
+    }
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    countdownEl.innerHTML = 'Time left: ' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+})();
+</script>
+</body>
+</html>
