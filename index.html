@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Get €200 with Revolut</title>
-  <!-- Import a modern font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -12,164 +11,279 @@
       font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg, #1B2D59 0%, #522c8a 50%, #3a0ca3 100%);
       color: #fff;
+      overflow-x: hidden;
+    }
+    h1, h2, h3 {
+      margin: 0 0 10px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
     .hero {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: 0 auto;
+      padding: 70px 0;
     }
     .hero-text {
-      flex: 1 1 400px;
+      flex: 1 1 500px;
     }
     .hero-text h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
+      font-size: 3em;
+      line-height: 1.2;
     }
     .hero-text p {
-      font-size: 1.1em;
+      font-size: 1.2em;
       margin-bottom: 20px;
     }
-    .hero-card {
-      flex: 1 1 300px;
+    .hero-img {
+      flex: 1 1 400px;
       text-align: center;
     }
-    .hero-card img {
+    .hero-img img {
       max-width: 100%;
       height: auto;
       border-radius: 12px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    }
+    .btn-primary {
+      display: inline-block;
+      background: #00d8d5;
+      color: #1B2D59;
+      padding: 18px 40px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
     .features {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      margin: 40px auto;
-      max-width: 1100px;
+      justify-content: space-between;
+      gap: 20px;
+      margin: 60px 0;
     }
-    .feature {
-      background: rgba(255, 255, 255, 0.1);
-      margin: 10px;
-      padding: 20px;
-      border-radius: 10px;
-      flex: 1 1 250px;
+    .feature-card {
+      background: rgba(255,255,255,0.1);
+      padding: 30px;
+      border-radius: 12px;
+      flex: 1 1 calc(25% - 20px);
       min-width: 250px;
+      backdrop-filter: blur(5px);
+      transition: background 0.3s;
     }
-    .feature h3 {
+    .feature-card:hover {
+      background: rgba(255,255,255,0.15);
+    }
+    .feature-card h3 {
+      font-size: 1.5em;
       margin-bottom: 10px;
-      font-size: 1.3em;
     }
-    .call-to-action {
-      text-align: center;
-      margin: 40px;
-    }
-    .call-to-action a {
-      display: inline-block;
-      background: #fff;
-      color: #3a0ca3;
-      padding: 15px 30px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s, color 0.3s;
-    }
-    .call-to-action a:hover {
-      background: #ffd700;
-      color: #3a0ca3;
+    .feature-card p {
+      font-size: 1em;
+      line-height: 1.4;
     }
     .steps {
-      max-width: 800px;
-      margin: 40px auto;
+      background: rgba(255,255,255,0.05);
+      padding: 50px;
+      border-radius: 12px;
+      margin-bottom: 60px;
+    }
+    .steps h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 30px;
     }
     .steps ol {
-      text-align: left;
-      margin: auto;
+      max-width: 800px;
+      margin: 0 auto;
       padding-left: 20px;
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+    .trust, .testimonials {
+      margin: 60px 0;
+      padding: 50px 20px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+    }
+    .trust h2, .testimonials h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    .trust p, .testimonials p {
+      text-align: center;
+      margin: 0 auto;
+      max-width: 800px;
+      line-height: 1.6;
+    }
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .trust-badge {
+      background: rgba(255,255,255,0.1);
+      padding: 20px 30px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1em;
+      min-width: 180px;
+    }
+    .cta-section {
+      text-align: center;
+      margin: 60px 0;
     }
     .countdown {
-      text-align: center;
-      margin-top: 20px;
-      font-weight: bold;
+      margin-top: 10px;
+      font-weight: 600;
     }
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
       font-size: 0.9em;
-      opacity: 0.8;
+      background: rgba(0,0,0,0.3);
+      line-height: 1.6;
+    }
+    footer a {
+      color: #00d8d5;
+      margin: 0 8px;
+      text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text h1 {
+        font-size: 2.3em;
+      }
+      .hero-img {
+        margin-top: 40px;
+      }
+      .features {
+        flex-direction: column;
+      }
+      .feature-card {
+        flex: 1 1 100%;
+      }
+      .steps {
+        padding: 30px 20px;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="container">
 
-<section class="hero">
-  <div class="hero-text">
-    <h1>Claim your €200 bonus</h1>
-    <p>Open a <strong>100% free IBAN bank account</strong> with Revolut today and get a sleek Visa card. Sign up before <strong>11 Nov 2025</strong> to receive a <strong>€200 welcome bonus</strong> – no fees, no surprises.</p>
-    <p>Enjoy free international spending, instant transfers and more with your new Revolut account.</p>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Get your <span style="color:#00d8d5;">€200 Bonus</span> today</h1>
+        <p>Open a <strong>free IBAN account</strong> with Revolut in minutes and unlock your €200 welcome bonus. Spend globally, save on fees and manage your money like a pro – all in one powerful app.</p>
+        <a class="btn-primary" href="https://revolut.com/referral/?referral-code=oualidhgep!NOV1-25-VR-NL&geo-redirect" target="_blank">Claim my €200 bonus</a>
+        <div id="hero-countdown" class="countdown"></div>
+      </div>
+      <div class="hero-img">
+        <img src="revolut-card.png" alt="Revolut Visa card">
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature-card">
+        <h3>€200 Welcome Bonus</h3>
+        <p>Join through this offer and receive a €200 reward after completing three purchases of €5 or more. It's real, instant and hassle‑free.</p>
+      </div>
+      <div class="feature-card">
+        <h3>100% Free IBAN Account</h3>
+        <p>Your Revolut account comes with a European IBAN and no monthly fees. Send and receive money across borders without hidden costs.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Multi‑Currency & Crypto</h3>
+        <p>Hold, exchange and spend 30+ currencies at interbank rates. Buy and sell crypto directly from the app whenever you like.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Secure & Regulated</h3>
+        <p>Your money is safeguarded by top‑tier banks and Revolut is fully licensed and regulated. Enjoy peace of mind with advanced security features.</p>
+      </div>
+    </section>
+
+    <section class="steps">
+      <h2>How It Works</h2>
+      <ol>
+        <li><strong>Sign Up:</strong> Tap the button, download the Revolut app and register with your phone number. Verification is quick and easy.</li>
+        <li><strong>Add Funds & Activate:</strong> Verify your identity, add money to your account and order your free physical card.</li>
+        <li><strong>Spend & Earn:</strong> Make three card purchases of at least €5 each and your €200 bonus will be credited automatically.</li>
+      </ol>
+    </section>
+
+    <section class="trust">
+      <h2>Trusted by 30M+ Customers</h2>
+      <p>Millions of people across Europe choose Revolut for everyday spending, saving and investing. Join them today and experience modern banking without boundaries.</p>
+      <div class="trust-badges">
+        <div class="trust-badge">FCA Regulated</div>
+        <div class="trust-badge">Funds Safeguarded</div>
+        <div class="trust-badge">30M+ Users</div>
+        <div class="trust-badge">Bank‑Level Encryption</div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2>What Our Users Say</h2>
+      <p>"I signed up through this offer and got my €200 bonus in just a few days. The app is slick and the card works everywhere!" – Anna, Netherlands</p>
+      <p>"Revolut's free IBAN and fee‑free currency exchange saved me a ton on my holiday. The bonus was a great surprise!" – Mark, Spain</p>
+    </section>
+
+    <div class="cta-section">
+      <a class="btn-primary" href="https://revolut.com/referral/?referral-code=oualidhgep!NOV1-25-VR-NL&geo-redirect" target="_blank">Open your free account now</a>
+      <div id="cta-countdown" class="countdown"></div>
+    </div>
+
   </div>
-  <div class="hero-card">
-    <!-- Load Revolut card image directly from Wikimedia Commons -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Revolut_Standard_Visa_debit_card.png" alt="Revolut debit card">
-  </div>
-</section>
 
-<section class="features">
-  <div class="feature">
-    <h3>€200 Sign‑Up Bonus</h3>
-    <p>Receive a €200 reward when you join Revolut through this offer and complete the quick onboarding steps.</p>
-  </div>
-  <div class="feature">
-    <h3>Free IBAN Account</h3>
-    <p>Get your own European IBAN to send &amp; receive money worldwide with zero monthly fees.</p>
-  </div>
-  <div class="feature">
-    <h3>All‑in‑One Card</h3>
-    <p>Spend online and in-store with the Revolut card and enjoy fee-free currency exchange up to €1,000/month.</p>
-  </div>
-</section>
+  <footer>
+    <p>
+      <a href="privacy.html">Privacy Policy</a> &bull;
+      <a href="disclaimer.html">Disclaimer</a> &bull;
+      <a href="contact.html">Contact</a>
+    </p>
+    <p>Offer valid until 11 November 2025. Terms apply. We are not affiliated with Revolut; this page promotes a referral offer.</p>
+  </footer>
 
-<section class="steps">
-  <h2 style="text-align:center;">How It Works</h2>
-  <ol>
-    <li>Click the button below to download Revolut and sign up with your phone number.</li>
-    <li>Verify your identity and activate your new IBAN account (no hidden costs).</li>
-    <li>Add funds and make three purchases of at least €5 each using your Revolut card or virtual card to unlock your €200 bonus.</li>
-  </ol>
-</section>
-
-<div class="call-to-action">
-  <a href="https://revolut.com/referral/?referral-code=oualidhgep!NOV1-25-VR-NL&geo-redirect" target="_blank">Get Revolut &amp; Claim €200</a>
-  <div id="countdown" class="countdown"></div>
-</div>
-
-<footer>
-  <p>This referral offer is valid until 11 November 2025. Terms apply.</p>
-</footer>
-
-<script>
-// Countdown timer
-(function() {
-  var end = new Date('2025-11-11T23:59:59+01:00').getTime();
-  var cd = document.getElementById('countdown');
-  function update() {
-    var now = new Date().getTime();
-    var dist = end - now;
-    if (dist <= 0) {
-      cd.innerHTML = 'Offer expired';
-      return;
+  <script>
+  // Countdown timer for hero and CTA sections
+  (function() {
+    var end = new Date('2025-11-11T23:59:59+01:00').getTime();
+    function updateCountdown(elementId) {
+      var element = document.getElementById(elementId);
+      var now = new Date().getTime();
+      var dist = end - now;
+      if (dist <= 0) {
+        element.innerHTML = 'Offer expired';
+        return;
+      }
+      var days = Math.floor(dist / (1000*60*60*24));
+      var hours = Math.floor((dist % (1000*60*60*24)) / (1000*60*60));
+      var minutes = Math.floor((dist % (1000*60*60)) / (1000*60));
+      var seconds = Math.floor((dist % (1000*60)) / 1000);
+      element.innerHTML = 'Offer ends in: ' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
     }
-    var days = Math.floor(dist / (1000*60*60*24));
-    var hours = Math.floor((dist % (1000*60*60*24)) / (1000*60*60));
-    var minutes = Math.floor((dist % (1000*60*60)) / (1000*60));
-    var seconds = Math.floor((dist % (1000*60)) / 1000);
-    cd.innerHTML = 'Offer ends in: ' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
-  }
-  update();
-  setInterval(update, 1000);
-})();
-</script>
+    function update() {
+      updateCountdown('hero-countdown');
+      updateCountdown('cta-countdown');
+    }
+    update();
+    setInterval(update, 1000);
+  })();
+  </script>
 
 </body>
 </html>
